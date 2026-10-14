@@ -18,14 +18,24 @@ _**Project Structure**_
 ```text
 crypto-tracker-pipeline/
 │
-├── data/                  # Local directory for stored CSV outputs (git-ignored)
-│   └── API.CSV            # Log file containing historical crypto data
+├── data/                  # Local directory for stored data outputs (git-ignored)
+│   ├── .gitkeep           # Keeps empty data directory tracked in Git
+│   └── crypto_data.csv    # Generated historical crypto dataset (ignored)
 │
-├── notebooks/             # Directory for Jupyter Notebooks
-│   └── crypto_scraper.ipynb  # Main pipeline notebook
+├── logs/                  # Local execution log files (git-ignored)
+│   └── .gitkeep
 │
-├── .env.example           # Example template for environment variables
-├── .gitignore             # Specifies files and directories ignored by Git
-├── LICENSE                # Open-source license terms (MIT)
-├── README.md              # Project documentation
-└── requirements.txt       # Project dependencies
+├── notebooks/             # Jupyter Notebooks for EDA & API experimentation
+│   └── crypto_eda.ipynb   # Exploratory Analysis & Visualization
+│
+├── src/                   # Source code / Production pipeline scripts
+│   ├── __init__.py
+│   ├── scraper.py         # API fetching and data ingestion logic
+│   └── utils.py           # Helper functions (e.g., logger, env loader)
+│
+├── .env.example           # Example template for environment variables (API Keys)
+├── .gitignore             # Git ignore rules (ignores .env, data/*.csv, logs/*)
+├── LICENSE                # Open-source license terms (e.g., MIT)
+├── README.md              # Detailed project documentation
+├── main.py                # Main execution script to run the full pipeline
+└── requirements.txt       # Project dependencies & libraries
