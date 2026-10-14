@@ -3,6 +3,7 @@
 .env.local
 .env.*
 *.env
+!.env.example
 
 # Python Cache & Bytecode
 __pycache__/
